@@ -70,7 +70,7 @@ ynh_add_fpm5_config () {
 	then
 		echo "Please do not use a separate ini file, merge you directives in the pool file instead." &>2
 	fi
-	sudo systemctl reload ${PHP5}-fpm-$app
+	sudo systemctl reload ${PHP5}-fpm
 }
 
 ynh_add_fpm5original_config () {
