@@ -20,7 +20,7 @@ ynh_add_nginx5_config () {
 		ynh_replace_string "__PORT__" "$port" "$finalnginxconf"
 	fi
 	if test -n "${app:-}"; then
-		ynh_replace_string "__NAME__" "${PHP5}-fpm-$app" "$finalnginxconf"
+		ynh_replace_string "__NAME__" "${PHP5}-fpm" "$finalnginxconf"
 	fi
 	if test -n "${final_path:-}"; then
 		ynh_replace_string "__FINALPATH__" "$final_path" "$finalnginxconf"
