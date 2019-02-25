@@ -54,7 +54,7 @@ ynh_add_fpm5_config () {
 	local fpm_service="${PHP5}-fpm"
 	
 	ynh_app_setting_set $app fpm_config_dir "/etc/php/5.6/fpm"
-	ynh_app_setting_set $app fpm_service "${PHP5}-fpm"
+	ynh_app_setting_set $app fpm_service "${PHP5}-fpm-$app"
 	finalphpconf="/etc/php/5.6/fpm/pool.d/$app.conf"
 	sudo cp ../conf/php-fpm.conf "$finalphpconf"
 	ynh_replace_string "__NAMETOCHANGE__" "$app" "$finalphpconf"
@@ -70,7 +70,7 @@ ynh_add_fpm5_config () {
 	then
 		echo "Please do not use a separate ini file, merge you directives in the pool file instead." &>2
 	fi
-	sudo systemctl reload ${PHP5}-fpm
+	sudo systemctl reload ${PHP5}-fpm-$app
 }
 
 ynh_add_fpm5original_config () {
